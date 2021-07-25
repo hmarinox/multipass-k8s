@@ -1,0 +1,41 @@
+#cloud-config
+users:
+  - default
+  - name: ubuntu
+    gecos: Ubuntu
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users, admin
+    shell: /bin/bash
+    ssh_import_id: None
+    lock_passwd: true
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCyO/S8iCIGxldlgVZesQvfrvSKG6dgYx+ncfnASDAN6HhpBt8wmK+SyZ5e5PRTb+zhrO5ybXMPRgZrjaMJGVoTtC8isi17yokCd5ht47PJh6iqI8lIEp+QVHBWo3Et17N4th3OdDQP1yk5kiK50IlCl6jO4K85/9f42RY5bLVD9B06qTR6/a8hxX2kymkXzVUUqNWjX2A/XTiUot7OvUKpSosKl5zz7x7rFcRD306ME+eUAV1ws0U/6RD9wZZ8bPtNIFrQsLp2A34yJuoPQTE9Kfbk95Ry3+1MsMaH7Zx0J84BHVaOes/wMTH673PKjYtIhXpt9m6zMWmkjglN2GOj hmarino@MacBook-Pro-de-hmarino.local 
+package_update: true
+package_upgrade: true
+packages:
+  - avahi-daemon
+  - pwgen
+  - pastebinit
+  - neofetch
+bootcmd:
+  - echo $(whoami) > /root/boot.txt
+
+runcmd:
+  - curl -sfSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -o /home/ubuntu/install.sh
+  - cd /home/ubuntu
+  - chown ubuntu.ubuntu /home/ubuntu/install.sh
+  - chmod +x /home/ubuntu/install.sh
+  - sudo -H -u ubuntu bash -c /home/ubuntu/install.sh  
+  - sed -i "s/font/agnoster/g" /home/ubuntu/.bashrc
+  - echo "neofetch" >> /home/ubuntu/.basshrc
+  
+
+output:
+    init:
+        output: "> /var/log/cloud-init.out"
+        error: "> /var/log/cloud-init.err"
+    config: "tee -a /var/log/cloud-config.log"
+    final:
+        - ">> /var/log/cloud-final.out"
+        - "/var/log/cloud-final.err"  
+
