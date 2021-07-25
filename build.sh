@@ -29,3 +29,5 @@ done <<< $(multipass list|awk '{ print $1 " ansible_host="$3 " ansible_ssh_user=
 
 echo "🛠  ${mag}Efetuando Setup e Hardening do novo servidor...${reset}"
 ansible-playbook $ANSIBLE_PLAYBOOKS/setup-multipass.yml --limit $VM_NAME
+echo "💻  ${meg} Conectando na nova VM ${reset}"
+multipass shell $VM_NAME
