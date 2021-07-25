@@ -27,7 +27,7 @@ runcmd:
   - chmod +x /home/ubuntu/install.sh
   - sudo -H -u ubuntu bash -c /home/ubuntu/install.sh  
   - sed -i "s/font/agnoster/g" /home/ubuntu/.bashrc
-  - echo "neofetch" >> /home/ubuntu/.basshrc
+  - echo "neofetch" >> /home/ubuntu/.bashrc
   
 
 
