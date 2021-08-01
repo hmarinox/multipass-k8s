@@ -13,8 +13,8 @@ green=`tput setaf 2`
 mag=`tput setaf 5`
 reset=`tput sgr0`
 
-cpu=2
-mem=2g
+cpu=1
+mem=1g
 disk=5g
 VM_NAME=$1
 

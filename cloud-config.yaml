@@ -16,7 +16,6 @@ packages:
   - avahi-daemon
   - pwgen
   - pastebinit
-  - neofetch
 bootcmd:
   - echo $(whoami) > /root/boot.txt
 
@@ -27,7 +26,4 @@ runcmd:
   - chmod +x /home/ubuntu/install.sh
   - sudo -H -u ubuntu bash -c /home/ubuntu/install.sh  
   - sed -i "s/font/agnoster/g" /home/ubuntu/.bashrc
-  - echo "neofetch" >> /home/ubuntu/.basshrc
-  
-
 
