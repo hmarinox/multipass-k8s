@@ -4,7 +4,7 @@ metadata:
   labels:
     app: nginx
   name: nginx
-  namespace: giropops
+  namespace: strigus
 spec:
   ports:
   - nodePort: 32222
