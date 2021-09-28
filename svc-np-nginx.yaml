@@ -3,7 +3,7 @@ kind: Service
 metadata:
   labels:
     app: nginx
-  name: nginx
+  name: svc-np-nginx
   namespace: strigus
 spec:
   ports:
