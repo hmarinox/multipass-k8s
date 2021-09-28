@@ -6,7 +6,7 @@ metadata:
   name: nginx
   namespace: strigus
 spec:
-  replicas: 3
+  replicas: 10
   selector:
     matchLabels:
       app: nginx
