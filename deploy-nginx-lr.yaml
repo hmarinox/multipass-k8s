@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx-limited
+  name: nginx-limited
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: nginx-limited
+  template:
+    metadata:
+      labels:
+        app: nginx-limited
+    spec:
+      containers:
+      - image: nginx
+        imagePullPolicy: Always
+        name: nginx-limited
+        ports:
+        - containerPort: 80
+          protocol: TCP
+        resources:
+          limits:
+            memory: 512Mi
+            cpu: "500m"
+          requests:
+            memory: 16Mi
+            cpu: "1m"
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
