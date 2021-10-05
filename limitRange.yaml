@@ -8,6 +8,6 @@ spec:
       cpu: "1"
       memory: 100Mi
     defaultRequest:
-      cpu: "0.5"
-      memory: 80Mi
+      cpu: "0.1 "
+      memory: 1Mi
     type: Container

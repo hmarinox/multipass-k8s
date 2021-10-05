@@ -4,10 +4,10 @@ metadata:
   labels:
     app: nginx
   name: svc-lb-nginx
-  namespace: strigus
+  namespace:
 spec:
   ports:
-  - nodePort: 32333
+  - nodePort: 32222
     port: 80
     protocol: TCP
     targetPort: 80

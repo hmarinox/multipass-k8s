@@ -1,7 +1,0 @@
----
-- hosts: multipass
-  become: yes
-  collections:
-    - devsec.hardening
-  roles:
-    - role: os_hardening
